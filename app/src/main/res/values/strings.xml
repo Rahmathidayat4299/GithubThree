@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GithubSeconds</string>
+    <string name="githubimage">githubimage</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="followers" translatable="true">Followers</string>
+    <string name="following" translatable="true">Following</string>
+    <string name="name">name</string>
+    <string name="username">username</string>
+</resources>
