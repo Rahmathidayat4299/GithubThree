@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dicoding.model.ModelDet
+import com.dicoding.model.remote.ModelDet
 import com.dicoding.retrofit.RetroService
 import retrofit2.Call
 import retrofit2.Response
@@ -12,7 +12,7 @@ import retrofit2.Response
 class DetailUserVm : ViewModel() {
     private val detailUser = MutableLiveData<ModelDet>()
 
-    fun getDetUser(username: String) {
+    fun getDetUser(username: String): LiveData<ModelDet>  {
         RetroService.apiInstansiasi
             .userDetail(username)
             .enqueue(object : retrofit2.Callback<ModelDet> {
@@ -29,9 +29,7 @@ class DetailUserVm : ViewModel() {
                 }
 
             })
-    }
-
-    fun showDetail(): LiveData<ModelDet> {
         return detailUser
     }
+
 }

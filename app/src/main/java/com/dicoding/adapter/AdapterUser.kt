@@ -9,7 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.dicoding.githubseconds.DetailUser
 import com.dicoding.githubseconds.DetailUser.Companion.USERNAME_GITHUB
 import com.dicoding.githubseconds.databinding.ItemListuserBinding
-import com.dicoding.model.ItemResult
+import com.dicoding.model.remote.ItemResult
 
 class AdapterUser : RecyclerView.Adapter<AdapterUser.ListViewHolder>() {
     private var listUser = ArrayList<ItemResult>()

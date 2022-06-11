@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dicoding.model.ItemResult
+import com.dicoding.model.remote.ItemResult
 import com.dicoding.retrofit.RetroService
 import retrofit2.Call
 import retrofit2.Callback
@@ -12,10 +12,9 @@ import retrofit2.Response
 
 
 class FollowerVm : ViewModel() {
-    // TODO: Implement the ViewModel
     private val dataFollower = MutableLiveData<ArrayList<ItemResult>>()
 
-    fun getFollower(username: String) {
+    fun getFollower(username: String): LiveData<ArrayList<ItemResult>> {
         RetroService.apiInstansiasi
             .listFollowers(username)
             .enqueue(object : Callback<ArrayList<ItemResult>> {
@@ -35,11 +34,9 @@ class FollowerVm : ViewModel() {
                 }
 
             })
-    }
-
-    fun showFollower(): LiveData<ArrayList<ItemResult>> {
         return dataFollower
     }
+
 }
 
 

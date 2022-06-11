@@ -1,4 +1,4 @@
-package com.dicoding.model
+package com.dicoding.model.remote
 
 data class UserResult(
     val items: ArrayList<ItemResult>

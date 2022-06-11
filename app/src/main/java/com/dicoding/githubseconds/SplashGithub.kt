@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.dicoding.ConstValue.SPLASH_SEC
+import com.dicoding.util.ConstValue.SPLASH_SEC
 
 class SplashGithub : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

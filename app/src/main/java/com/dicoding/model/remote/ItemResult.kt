@@ -1,4 +1,4 @@
-package com.dicoding.model
+package com.dicoding.model.remote
 
 import com.google.gson.annotations.SerializedName
 

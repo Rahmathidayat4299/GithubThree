@@ -6,7 +6,6 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.adapter.AdapterUser
 import com.dicoding.githubseconds.databinding.ActivityListUserBinding
@@ -17,6 +16,7 @@ class ListUser : AppCompatActivity() {
     private val viewModel by viewModels<ListUserVm>()
     private lateinit var adapterUser: AdapterUser
 
+
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,6 @@ class ListUser : AppCompatActivity() {
         setContentView(binding.root)
         adapterUser = AdapterUser()
         adapterUser.notifyDataSetChanged()
-//        viewModel = ViewModelProvider(this)[ListUserVm::class.java]
 
 
         binding.search.apply {
@@ -40,6 +39,7 @@ class ListUser : AppCompatActivity() {
                                 adapterUser.addList(it)
                                 viewLoading(false)
                                 showData()
+
                             }
                         }
                     }
@@ -52,6 +52,7 @@ class ListUser : AppCompatActivity() {
             })
 
         }
+
     }
 
     private fun viewLoading(isLoading: Boolean) {

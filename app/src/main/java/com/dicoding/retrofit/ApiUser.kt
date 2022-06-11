@@ -1,8 +1,8 @@
 package com.dicoding.retrofit
 
-import com.dicoding.model.ItemResult
-import com.dicoding.model.ModelDet
-import com.dicoding.model.UserResult
+import com.dicoding.model.remote.ItemResult
+import com.dicoding.model.remote.ModelDet
+import com.dicoding.model.remote.UserResult
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

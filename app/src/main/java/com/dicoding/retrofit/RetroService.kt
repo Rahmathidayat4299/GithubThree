@@ -9,7 +9,7 @@ object RetroService {
     private const val BASE_URL = "https://api.github.com/"
     private var client = OkHttpClient.Builder().addInterceptor { chain ->
         val newRequest: Request = chain.request().newBuilder()
-            .addHeader("Authorization", "Token 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")
+            .addHeader("Authorization", "Token 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")
             .build()
         chain.proceed(newRequest)
     }.build()

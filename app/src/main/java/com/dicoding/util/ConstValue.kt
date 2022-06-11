@@ -1,4 +1,4 @@
-package com.dicoding
+package com.dicoding.util
 
 import androidx.annotation.StringRes
 import com.dicoding.githubseconds.R
