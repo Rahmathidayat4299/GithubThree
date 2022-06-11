@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.adapter.AdapterUser
@@ -15,7 +16,7 @@ import com.dicoding.viewmodel.FollowerVm
 class FollowerFragment : Fragment() {
     private var _binding: FollowFragmentBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: FollowerVm
+    private val viewModel by viewModels<FollowerVm>()
     private lateinit var adapterUser: AdapterUser
     private lateinit var username: String
 
@@ -41,10 +42,10 @@ class FollowerFragment : Fragment() {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         }
         viewLoading(true)
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.NewInstanceFactory()
-        )[FollowerVm::class.java]
+//        viewModel = ViewModelProvider(
+//            this,
+//            ViewModelProvider.NewInstanceFactory()
+//        )[FollowerVm::class.java]
         viewModel.getFollower(username)
         viewModel.showFollower().observe(viewLifecycleOwner) {
             if (it != null) adapterUser.addList(it)

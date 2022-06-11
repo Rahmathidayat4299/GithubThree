@@ -10,20 +10,20 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class FollowingVm: ViewModel() {
-    val dataFollowing = MutableLiveData<ArrayList<ItemResult>>()
+class FollowingVm : ViewModel() {
+    private val dataFollowing = MutableLiveData<ArrayList<ItemResult>>()
 
-    fun getFollowing(username : String){
+    fun getFollowing(username: String) {
         RetroService.apiInstansiasi
             .listFollowing(username)
-            .enqueue(object :Callback<ArrayList<ItemResult>>{
+            .enqueue(object : Callback<ArrayList<ItemResult>> {
                 override fun onResponse(
                     call: Call<ArrayList<ItemResult>>,
                     response: Response<ArrayList<ItemResult>>
                 ) {
-                    if (response.isSuccessful){
+                    if (response.isSuccessful) {
                         dataFollowing.postValue(response.body())
-                    }else{
+                    } else {
                         Log.e("FollowingVm", "onResponse: error ${response.message()}")
                     }
                 }
@@ -34,7 +34,7 @@ class FollowingVm: ViewModel() {
             })
     }
 
-    fun showFollowing():LiveData<ArrayList<ItemResult>>{
+    fun showFollowing(): LiveData<ArrayList<ItemResult>> {
         return dataFollowing
     }
 }

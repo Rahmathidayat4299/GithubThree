@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.adapter.AdapterUser
@@ -15,7 +16,7 @@ import com.dicoding.viewmodel.FollowingVm
 class FollowingFragment : Fragment(R.layout.follow_fragment) {
     private var _binding: FollowFragmentBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: FollowingVm
+    private val viewModel by viewModels<FollowingVm>()
     private lateinit var adapterUser: AdapterUser
     private lateinit var username: String
 
@@ -41,10 +42,10 @@ class FollowingFragment : Fragment(R.layout.follow_fragment) {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         }
         viewLoading(true)
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.NewInstanceFactory()
-        )[FollowingVm::class.java]
+//        viewModel = ViewModelProvider(
+//            this,
+//            ViewModelProvider.NewInstanceFactory()
+//        )[FollowingVm::class.java]
         viewModel.getFollowing(username)
         viewModel.showFollowing().observe(viewLifecycleOwner) {
             if (it != null) {

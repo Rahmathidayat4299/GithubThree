@@ -3,6 +3,7 @@ package com.dicoding.githubseconds
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
@@ -13,7 +14,7 @@ import com.dicoding.viewmodel.ListUserVm
 
 class ListUser : AppCompatActivity() {
     private lateinit var binding: ActivityListUserBinding
-    private lateinit var viewModel: ListUserVm
+    private val viewModel by viewModels<ListUserVm>()
     private lateinit var adapterUser: AdapterUser
 
     @SuppressLint("NotifyDataSetChanged")
@@ -23,7 +24,7 @@ class ListUser : AppCompatActivity() {
         setContentView(binding.root)
         adapterUser = AdapterUser()
         adapterUser.notifyDataSetChanged()
-        viewModel = ViewModelProvider(this)[ListUserVm::class.java]
+//        viewModel = ViewModelProvider(this)[ListUserVm::class.java]
 
 
         binding.search.apply {

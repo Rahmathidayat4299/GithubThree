@@ -13,19 +13,19 @@ import retrofit2.Response
 
 class FollowerVm : ViewModel() {
     // TODO: Implement the ViewModel
-    val dataFollower = MutableLiveData<ArrayList<ItemResult>>()
+    private val dataFollower = MutableLiveData<ArrayList<ItemResult>>()
 
-    fun getFollower(username : String){
+    fun getFollower(username: String) {
         RetroService.apiInstansiasi
             .listFollowers(username)
-            .enqueue(object :Callback<ArrayList<ItemResult>> {
+            .enqueue(object : Callback<ArrayList<ItemResult>> {
                 override fun onResponse(
                     call: Call<ArrayList<ItemResult>>,
                     response: Response<ArrayList<ItemResult>>
                 ) {
-                    if (response.isSuccessful){
+                    if (response.isSuccessful) {
                         dataFollower.postValue(response.body())
-                    }else{
+                    } else {
                         Log.e("FollowerVm", "onResponse: error ${response.message()}")
                     }
                 }

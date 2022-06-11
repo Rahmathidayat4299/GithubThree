@@ -15,7 +15,7 @@ class ListUserVm : ViewModel() {
     private val list = MutableLiveData<ArrayList<ItemResult>>()
 
 
-    fun getUser(q: String):LiveData<ArrayList<ItemResult>> {
+    fun getUser(q: String): LiveData<ArrayList<ItemResult>> {
         RetroService.apiInstansiasi
             .getListUser(q)
             .enqueue(object : Callback<UserResult> {
@@ -32,8 +32,4 @@ class ListUserVm : ViewModel() {
             })
         return list
     }
-
-//    fun getListUser(): LiveData<ArrayList<ItemResult>> {
-//
-//    }
 }

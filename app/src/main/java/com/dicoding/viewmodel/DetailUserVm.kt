@@ -1,7 +1,6 @@
 package com.dicoding.viewmodel
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,10 +8,9 @@ import com.dicoding.model.ModelDet
 import com.dicoding.retrofit.RetroService
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 class DetailUserVm : ViewModel() {
-    val detailUser = MutableLiveData<ModelDet>()
+    private val detailUser = MutableLiveData<ModelDet>()
 
     fun getDetUser(username: String) {
         RetroService.apiInstansiasi

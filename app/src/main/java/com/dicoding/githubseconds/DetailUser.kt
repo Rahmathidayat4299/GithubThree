@@ -1,6 +1,7 @@
 package com.dicoding.githubseconds
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -13,13 +14,13 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailUser : AppCompatActivity() {
     private lateinit var binding: ActivityDetailUserBinding
-    private lateinit var viewModel: DetailUserVm
+    private val viewModel by viewModels<DetailUserVm>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel = ViewModelProvider(this)[DetailUserVm::class.java]
+//        viewModel = ViewModelProvider(this)[DetailUserVm::class.java]
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
         }
