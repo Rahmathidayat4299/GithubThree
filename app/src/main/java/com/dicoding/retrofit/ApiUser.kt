@@ -19,13 +19,18 @@ interface ApiUser {
         @Path("username") username: String
     ): Call<ModelDet>
 
-    @GET("users/{username}/followers")
-    fun listFollowers(
-        @Path("username") username: String
-    ): Call<ArrayList<ItemResult>>
+//    @GET("users/{username}/followers")
+//    fun listFollowers(
+//        @Path("username") username: String
+//    ): Call<ArrayList<ItemResult>>
+//
+//    @GET("users/{username}/following")
+//    fun listFollowing(
+//        @Path("username") username: String
+//    ): Call<ArrayList<ItemResult>>
 
-    @GET("users/{username}/following")
-    fun listFollowing(
-        @Path("username") username: String
+    @GET("users/{username}/{type}")
+    fun pathFollow(
+        @Path("username") username: String,@Path("type") type: String,
     ): Call<ArrayList<ItemResult>>
 }

@@ -13,9 +13,9 @@ import retrofit2.Response
 class FollowingVm : ViewModel() {
     private val dataFollowing = MutableLiveData<ArrayList<ItemResult>>()
 
-    fun getFollowing(username: String): LiveData<ArrayList<ItemResult>>  {
+    fun getFollowing(username: String) {
         RetroService.apiInstansiasi
-            .listFollowing(username)
+            .pathFollow(username,"following")
             .enqueue(object : Callback<ArrayList<ItemResult>> {
                 override fun onResponse(
                     call: Call<ArrayList<ItemResult>>,
@@ -32,7 +32,9 @@ class FollowingVm : ViewModel() {
                     Log.e("FollowerVm", "onResponse: error ${t.message.toString()}")
                 }
             })
-        return dataFollowing
     }
 
+    fun showFollowing(): LiveData<ArrayList<ItemResult>> {
+        return dataFollowing
+    }
 }

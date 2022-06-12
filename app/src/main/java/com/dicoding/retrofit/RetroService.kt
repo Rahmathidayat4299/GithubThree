@@ -1,5 +1,7 @@
 package com.dicoding.retrofit
 
+import android.provider.Contacts.SettingsColumns.KEY
+import com.dicoding.githubseconds.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Retrofit
@@ -7,9 +9,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetroService {
     private const val BASE_URL = "https://api.github.com/"
+
     private var client = OkHttpClient.Builder().addInterceptor { chain ->
         val newRequest: Request = chain.request().newBuilder()
-            .addHeader("Authorization", "Token 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")
+            .addHeader("Authorization", "Token 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")
             .build()
         chain.proceed(newRequest)
     }.build()

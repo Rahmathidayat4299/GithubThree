@@ -1,7 +1,10 @@
 package com.dicoding.githubseconds
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -9,13 +12,13 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.adapter.AdapterUser
 import com.dicoding.githubseconds.databinding.ActivityListUserBinding
+import com.dicoding.model.remote.ItemResult
 import com.dicoding.viewmodel.ListUserVm
 
 class ListUser : AppCompatActivity() {
     private lateinit var binding: ActivityListUserBinding
     private val viewModel by viewModels<ListUserVm>()
     private lateinit var adapterUser: AdapterUser
-
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +27,7 @@ class ListUser : AppCompatActivity() {
         setContentView(binding.root)
         adapterUser = AdapterUser()
         adapterUser.notifyDataSetChanged()
+//        viewModel = ViewModelProvider(this)[ListUserVm::class.java]
 
 
         binding.search.apply {
@@ -39,7 +43,6 @@ class ListUser : AppCompatActivity() {
                                 adapterUser.addList(it)
                                 viewLoading(false)
                                 showData()
-
                             }
                         }
                     }
@@ -53,6 +56,40 @@ class ListUser : AppCompatActivity() {
 
         }
 
+        adapterUser.setOnItemClickCallback(object : AdapterUser.OnItemClickCallback {
+            override fun onItemClik(data: ItemResult) {
+                Intent(this@ListUser, DetailUser::class.java).also {
+                    it.putExtra(DetailUser.USERNAME_GITHUB, data.login)
+                    it.putExtra(DetailUser.EXTRA_ID, data.id)
+                    it.putExtra(DetailUser.EXTRA_URL_AVATAR, data.avatarUrl)
+                    it.putExtra(DetailUser.EXTRA_URL, data.htmlUrl)
+                    startActivity(it)
+                }
+            }
+        })
+
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_option, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.favorite_menu -> {
+                Intent(this, FavUserActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+            R.id.setting_menu -> {
+                Intent(this, SettingApp::class.java).also {
+                    startActivity(it)
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun viewLoading(isLoading: Boolean) {
