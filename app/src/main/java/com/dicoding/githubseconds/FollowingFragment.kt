@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.adapter.AdapterUser
 import com.dicoding.githubseconds.databinding.FollowFragmentBinding
@@ -42,10 +41,7 @@ class FollowingFragment : Fragment(R.layout.follow_fragment) {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         }
         viewLoading(true)
-//        viewModel = ViewModelProvider(
-//            this,
-//            ViewModelProvider.NewInstanceFactory()
-//        )[FollowingVm::class.java]
+
         viewModel.getFollowing(username)
         viewModel.showFollowing().observe(viewLifecycleOwner) {
             if (it != null) {

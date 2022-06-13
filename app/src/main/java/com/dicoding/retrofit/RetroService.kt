@@ -1,7 +1,5 @@
 package com.dicoding.retrofit
 
-import android.provider.Contacts.SettingsColumns.KEY
-import com.dicoding.githubseconds.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Retrofit
@@ -16,6 +14,7 @@ object RetroService {
             .build()
         chain.proceed(newRequest)
     }.build()
+
     private val retrofit = Retrofit.Builder()
         .client(client)
         .baseUrl(BASE_URL)

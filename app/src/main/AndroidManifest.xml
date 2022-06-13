@@ -15,7 +15,7 @@
             android:name=".FavUserActivity"
             android:exported="false" />
         <activity
-            android:name=".SettingApp"
+            android:name="com.dicoding.darkmode.SettingApp"
             android:exported="false" />
         <activity
             android:name=".ListUser"

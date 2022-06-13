@@ -1,12 +1,11 @@
 package com.dicoding.githubseconds
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.dicoding.ConstValue.TITLE_FOLLOW
+import com.dicoding.util.ConstValue.TITLE_FOLLOW
 import com.dicoding.adapter.AdapterViewPager
 import com.dicoding.githubseconds.databinding.ActivityDetailUserBinding
 import com.dicoding.viewmodel.DetailUserVm
@@ -18,7 +17,6 @@ import kotlinx.coroutines.withContext
 
 class DetailUser : AppCompatActivity() {
     private lateinit var binding: ActivityDetailUserBinding
-//    private val viewModel by viewModels<DetailUserVm>()
     private lateinit var viewModel: DetailUserVm
 
     override fun onCreate(savedInstanceState: Bundle?) {

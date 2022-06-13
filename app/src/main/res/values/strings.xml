@@ -6,4 +6,6 @@
     <string name="following" translatable="true">Following</string>
     <string name="name">name</string>
     <string name="username">username</string>
+    <string name="mode_app">Mode App</string>
+    <string name="dark_mode">Dark Mode</string>
 </resources>

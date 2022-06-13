@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingApp">
+    tools:context="com.dicoding.darkmode.SettingApp">
 
     <TextView
         android:id="@+id/titleTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="dark_mode_app"
+        android:text="@string/mode_app"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,11 +19,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch1"
+        android:id="@+id/switchTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="dark_mode"
+        android:text="@string/dark_mode"
         app:layout_constraintEnd_toEndOf="@+id/titleTV"
         app:layout_constraintStart_toStartOf="@+id/titleTV"
         app:layout_constraintTop_toBottomOf="@+id/titleTV"

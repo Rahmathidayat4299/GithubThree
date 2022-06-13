@@ -40,11 +40,6 @@ class AdapterUser : RecyclerView.Adapter<AdapterUser.ListViewHolder>() {
                 .load(users.avatarUrl)
                 .apply(RequestOptions.circleCropTransform())
                 .into(binding.imageUser)
-//            itemView.setOnClickListener {
-//                val intent = Intent(itemView.context, DetailUser::class.java)
-//                intent.putExtra(USERNAME_GITHUB, users.login)
-//                itemView.context.startActivity(intent)
-//            }
         }
 
     }

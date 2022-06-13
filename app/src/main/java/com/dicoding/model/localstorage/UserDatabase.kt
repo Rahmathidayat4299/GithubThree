@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [FavoriteUser::class], version = 1)
 abstract class UserDatabase : RoomDatabase() {
     companion object {
-        var INSTANCE: UserDatabase? = null
+        private var INSTANCE: UserDatabase? = null
         fun getDatabase(context: Context): UserDatabase? {
             if (INSTANCE == null) {
                 synchronized(UserDatabase::class) {

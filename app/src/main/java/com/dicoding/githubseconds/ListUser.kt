@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.adapter.AdapterUser
+import com.dicoding.darkmode.SettingApp
 import com.dicoding.githubseconds.databinding.ActivityListUserBinding
 import com.dicoding.model.remote.ItemResult
 import com.dicoding.viewmodel.ListUserVm
@@ -27,7 +28,6 @@ class ListUser : AppCompatActivity() {
         setContentView(binding.root)
         adapterUser = AdapterUser()
         adapterUser.notifyDataSetChanged()
-//        viewModel = ViewModelProvider(this)[ListUserVm::class.java]
 
 
         binding.search.apply {
